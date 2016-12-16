@@ -1,16 +1,14 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { ApplicationModule } from './app/app.module';
 
-// Used accross many services
-import { HTTP_PROVIDERS } from '@angular/http';
+import 'core-js';
+import 'zone.js/dist/zone';
 
-// Application starting point
-import { AppComponent } from './app/app.component';
+var ENV: string;
 
-if (process.env.ENV === 'production') {
+if (ENV === 'production') {
   enableProdMode();
 }
 
-bootstrap(AppComponent, [
-  HTTP_PROVIDERS
-]);
+platformBrowserDynamic().bootstrapModule(ApplicationModule);
