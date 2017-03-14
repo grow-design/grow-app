@@ -5,6 +5,10 @@ import { Http, XHRBackend, RequestOptions,
     BrowserXhr, BaseRequestOptions, ResponseOptions,
     BaseResponseOptions, XSRFStrategy, CookieXSRFStrategy } from '@angular/http';
 
+import { WeightedScreenModule, Configuration } from 'weighted-screen';
+
+import { GrowConfiguration } from './util/grow.configuration';
+
 const HTTP_PROVIDERS: Array<any> = [
     {
         provide: Http,
@@ -23,12 +27,18 @@ const HTTP_PROVIDERS: Array<any> = [
     XHRBackend,
     {
         provide: XSRFStrategy, useFactory: () => new CookieXSRFStrategy()
-    }
+    },
+    {
+        provide: Configuration, useFactory: () => new GrowConfiguration()
+    } 
 ];
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule],
+    imports: [
+        BrowserModule,
+        WeightedScreenModule.forRoot()
+    ],
     bootstrap: [AppComponent],
     providers: [
         HTTP_PROVIDERS

@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+.navbar-header {
+    margin: 0 30px;
+}
+
+body {
+    font: 10px sans-serif;
+    position: relative;
+}
+
+.node {
+    box-sizing: border-box;
+    position: absolute;
+    overflow: hidden;
+}
+
+.node-label {
+    color: #fff;
+    font-size: 14px;
+    padding: 4px;
+    white-space: pre;
+}
+
+.node-label a {
+    color: #fff;
+}
+
+.node-value {
+    color: rgba(0,0,0,0.8);
+    font-size: 9px;
+    margin-top: 1px;
+}
